@@ -1,0 +1,68 @@
+@import '../../mixin.scss';
+
+.sidebar {
+    position: sticky;
+    top: calc(80px + 1rem);
+    flex: 0.2;
+    border-radius: 10px;
+    // text-align: center;
+    height: fit-content;
+
+    &__top {
+        border-radius: 0.8rem 0.8rem 0 0;
+        padding-bottom: 1rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $white;
+
+        &__background {
+            object-fit: cover;
+            width: 100%;
+            height: 60px;
+            margin-bottom: -20px;
+        }
+
+        &__avatar {
+            object-fit: contain;
+            height: 40px !important;
+            width: 40px !important;
+            margin-bottom: 1rem;
+        }
+
+        &__subtitle {
+            font-size: 0.8rem;
+        }
+    }
+
+    &__stats {
+        padding: 1rem 0.8rem;
+        background-color: $white;
+        border-radius: 0 0 0.8rem 0.8rem;
+        border-top: 0.1px solid lightgray;
+
+        &__stat {
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+
+            p {
+                color: gray;
+                font-size: 0.8rem;
+            }
+
+            p.sidebar__stats__stat__number {
+                color: $linkedin_blue;
+                font-weight: 800;
+            }
+        }
+    }
+
+    &__bottom {
+        border-radius: 0.8rem;
+        background-color: $white;
+        padding: 1rem 0.8rem;
+        margin-top: 0.8rem;
+    }
+}

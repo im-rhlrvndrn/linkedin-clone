@@ -1,0 +1,81 @@
+@import '../../mixin.scss';
+
+.post {
+    background-color: $white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+
+    &__header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        &__avatar {
+            width: 50px !important;
+            height: 50px !important;
+            object-fit: contain;
+        }
+
+        &__details {
+            margin-left: 1rem;
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            &__bio {
+                font-size: 0.8rem;
+            }
+        }
+
+        .postOptionsIcon {
+            margin-left: auto;
+
+            svg {
+                width: 40px !important;
+                height: 40px !important;
+                cursor: pointer;
+                align-self: flex-start;
+                padding: 0.5rem;
+                border-radius: 50%;
+
+                &:hover {
+                    background-color: $offwhite;
+                }
+            }
+        }
+
+        &__postOptions {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            border: 0.1px solid lightgray;
+            height: auto;
+            background-color: $white;
+            z-index: 999;
+
+            &__option {
+                display: block;
+                cursor: pointer;
+                padding: 0.5rem 1rem;
+                transition: 0.4s ease-in-out;
+
+                &:hover {
+                    background-color: $offwhite;
+                }
+            }
+        }
+    }
+
+    &__message {
+        width: 90%;
+    }
+
+    &__interactionOptions {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+    }
+}

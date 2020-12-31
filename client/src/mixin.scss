@@ -1,0 +1,22 @@
+$linkedin_blue: #0a66c2;
+$light_linkedin_blue: #eef3f8;
+$offwhite: #f3f2ef;
+$white: white;
+
+@mixin phone {
+    @media screen and (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin mini-tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}

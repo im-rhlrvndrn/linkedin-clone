@@ -1,0 +1,27 @@
+@import '../../mixin.scss';
+
+.sidebarOptions {
+    margin-bottom: 0.5rem;
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    &__option {
+        opacity: 0.6;
+        cursor: pointer;
+        padding: 0.5rem 0.5rem 0.5rem 0;
+        font-size: 0.8rem;
+        border-radius: 5px;
+        transition: 0.3s ease-in-out;
+
+        &__hashtag {
+            margin-right: 0.5rem;
+        }
+
+        &:hover {
+            background-color: $offwhite;
+            opacity: 1;
+        }
+    }
+}

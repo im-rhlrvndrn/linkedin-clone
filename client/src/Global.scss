@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap');
+@import './mixin.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+input:focus,
+button:focus,
+textarea:focus {
+    outline: none;
+}
+
+input,
+button,
+textarea {
+    height: 45px;
+    padding: 0 2rem;
+    border-radius: 5px;
+    border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 800;
+}

@@ -1,0 +1,40 @@
+@import '../../mixin.scss';
+
+.widget {
+    flex: 0.2;
+    background-color: $white;
+    border-radius: 10px;
+    padding: 0.5rem;
+    height: fit-content;
+    position: sticky;
+    top: calc(80px + 1rem);
+
+    h2 {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    &__news {
+        display: flex;
+        margin-bottom: 1rem;
+
+        &__left {
+            svg {
+                margin-right: 0.5rem;
+                color: $linkedin_blue;
+            }
+        }
+
+        &__right {
+            p {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}

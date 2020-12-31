@@ -1,0 +1,50 @@
+@import '../../mixin.scss';
+
+.header {
+    height: auto;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 0.1px solid lightgray;
+
+    &__left {
+        flex: 0.5;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 40px;
+            object-fit: contain;
+            margin-right: 1rem;
+        }
+
+        &__search_container {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            height: 35px;
+            border-radius: 5px;
+            padding: 0rem 1rem;
+            background-color: $light_linkedin_blue;
+
+            input {
+                padding: 0 1rem;
+                height: 30px;
+                border: none;
+                background-color: transparent;
+            }
+        }
+    }
+
+    &__right {
+        flex: 0.5;
+        display: flex;
+        justify-content: space-around;
+    }
+}
