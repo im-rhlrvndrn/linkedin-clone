@@ -1,6 +1,7 @@
 import React from 'react';
+import useWindowSize from '../../utils/useWindowSize';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout, selectUser } from '../../features/userSlice';
+import { logout, selectUser, setAppState } from '../../features/userSlice';
 import { auth } from '../../firebase';
 
 // icons
@@ -18,42 +19,58 @@ import './Header.scss';
 import HeaderOption from './HeaderOption/HeaderOption';
 
 const Header = () => {
+    const _windowSize = useWindowSize();
     const user = useSelector(selectUser);
     const dispatch = useDispatch();
+
     const logoutUser = () => {
         dispatch(logout());
         auth.signOut();
     };
 
-    console.log(user);
+    const _setAppState = (state) => {
+        if (_windowSize?.width <= 1024) {
+            dispatch(setAppState(state));
+        }
+    };
 
     return (
         <div className='header'>
-            <div className='header__left'>
-                <img
-                    src='https://flaticon.com/svg/static/icons/svg/174/174857.svg'
-                    alt='Linkedin icon'
-                />
-                <div className='header__left__search_container'>
-                    <SearchIcon />
-                    <input
-                        type='text'
-                        name='header_search'
-                        id='header_search'
-                        placeholder='Search'
+            {_windowSize?.width > 1024 && (
+                <div className='header__left'>
+                    <img
+                        src='https://flaticon.com/svg/static/icons/svg/174/174857.svg'
+                        alt='Linkedin icon'
                     />
+                    <div className='header__left__search_container'>
+                        <SearchIcon />
+                        <input
+                            type='text'
+                            name='header_search'
+                            id='header_search'
+                            placeholder='Search'
+                        />
+                    </div>
                 </div>
-            </div>
+            )}
             <div className='header__right'>
-                <HeaderOption Icon={HomeIcon} title='Home' />
+                <HeaderOption Icon={HomeIcon} title='Home' onClick={() => _setAppState('feed')} />
                 <HeaderOption Icon={MyNetworkIcon} title='My Network' />
                 <HeaderOption Icon={BusinessCenterIcon} title='Jobs' />
                 <HeaderOption Icon={ChatIcon} title='Chats' />
-                <HeaderOption Icon={NotificationsIcon} title='Notifications' />
+                <HeaderOption
+                    Icon={NotificationsIcon}
+                    title='Notifications'
+                    onClick={() => _setAppState('widgets')}
+                />
                 <HeaderOption
                     avatar={user?.avatarURL ? user?.avatarURL : user?.displayName[0]}
                     title='me'
-                    onClick={logoutUser}
+                    onClick={() => {
+                        if (_windowSize?.width <= 1024) {
+                            _setAppState('sidebar');
+                        } else logoutUser();
+                    }}
                 />
             </div>
         </div>

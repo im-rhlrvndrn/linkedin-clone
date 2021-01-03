@@ -12,6 +12,14 @@
     top: 0;
     z-index: 999;
     border-bottom: 0.1px solid lightgray;
+    @include tablet {
+        position: fixed;
+        top: 100%;
+        transform: translateY(-100%);
+    }
+    @include phone {
+        padding: 1rem;
+    }
 
     &__left {
         flex: 0.5;
@@ -46,5 +54,9 @@
         flex: 0.5;
         display: flex;
         justify-content: space-around;
+        @include tablet {
+            flex: 1;
+            justify-content: space-between;
+        }
     }
 }

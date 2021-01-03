@@ -3,12 +3,20 @@
 .feed {
     flex: 0.6;
     margin: 0 1rem;
+    @include tablet {
+        flex: 1;
+        padding-bottom: 77px;
+    }
+    @include phone {
+        margin: 0;
+    }
 
     &__inputContainer {
         background-color: $white;
         border-radius: 10px;
         padding: 0.8rem;
         margin-bottom: 0.5rem;
+        width: 100%;
 
         &__input {
             height: auto;

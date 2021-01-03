@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import useWindowSize from '../../utils/useWindowSize';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from '../../firebase';
-import { login, logout, selectUser } from '../../features/userSlice';
+import { login, logout, selectAppState, selectUser } from '../../features/userSlice';
 
 // styles
 import './Home.scss';
@@ -14,7 +15,9 @@ import Login from '../Login/Login';
 import Widgets from '../../components/Widgets/Widgets';
 
 const Home = () => {
+    const _windowSize = useWindowSize();
     const user = useSelector(selectUser);
+    const appState = useSelector(selectAppState);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -33,18 +36,30 @@ const Home = () => {
     }, []);
 
     return (
-        <div className='home'>
+        <>
             <Header />
-            {!user ? (
-                <Login />
-            ) : (
-                <div style={{ display: 'flex' }} className='main__body'>
-                    <Sidebar />
-                    <Feed />
-                    <Widgets />
-                </div>
-            )}
-        </div>
+            <div className='home'>
+                {!user ? (
+                    <Login />
+                ) : (
+                    <div style={{ display: 'flex' }} className='main__body'>
+                        {_windowSize?.width > 1024 ? (
+                            <>
+                                <Sidebar />
+                                <Feed />
+                                <Widgets />
+                            </>
+                        ) : appState === 'feed' ? (
+                            <Feed />
+                        ) : appState === 'sidebar' ? (
+                            <Sidebar />
+                        ) : appState === 'widgets' ? (
+                            <Widgets />
+                        ) : null}
+                    </div>
+                )}
+            </div>
+        </>
     );
 };
 

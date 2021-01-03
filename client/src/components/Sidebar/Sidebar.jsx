@@ -1,6 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../features/userSlice';
+import useWindowSize from '../../utils/useWindowSize';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from '../../features/userSlice';
+import { auth } from '../../firebase';
 import { Avatar } from '@material-ui/core';
 
 // styles
@@ -10,7 +12,9 @@ import './Sidebar.scss';
 import SidebarOptions from '../SidebarOptions/SidebarOptions';
 
 const Sidebar = () => {
+    const _windowSize = useWindowSize();
     const user = useSelector(selectUser);
+    const dispatch = useDispatch();
 
     return (
         <div className='sidebar'>
@@ -44,6 +48,17 @@ const Sidebar = () => {
                     options={['ReactJS', 'programming', 'GraphQL', 'NodeJS']}
                 />
             </div>
+            {_windowSize?.width <= 1024 && (
+                <button
+                    onClick={() => {
+                        dispatch(logout());
+                        auth.signOut();
+                    }}
+                    className='logout'
+                >
+                    Logout
+                </button>
+            )}
         </div>
     );
 };
