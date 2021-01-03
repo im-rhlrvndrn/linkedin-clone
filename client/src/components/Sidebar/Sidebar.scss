@@ -35,14 +35,19 @@
             margin-bottom: -20px;
             @include tablet {
                 height: 200px;
+                margin-bottom: -40px;
             }
         }
 
         &__avatar {
             object-fit: contain;
+            margin-bottom: 1rem;
             height: 40px !important;
             width: 40px !important;
-            margin-bottom: 1rem;
+            @include tablet {
+                height: 80px !important;
+                width: 80px !important;
+            }
         }
 
         &__subtitle {
