@@ -7,6 +7,7 @@ import { db } from '../../firebase';
 
 // icons
 import CreateIcon from '@material-ui/icons/Create';
+import SendIcon from '@material-ui/icons/Send';
 import ImageIcon from '@material-ui/icons/Image';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import EventNoteIcon from '@material-ui/icons/EventNote';
@@ -61,7 +62,6 @@ const Feed = () => {
         <div className='feed'>
             <div className='feed__inputContainer'>
                 <div className='feed__inputContainer__input'>
-                    <CreateIcon />
                     <form onSubmit={createPost}>
                         <textarea
                             autoComplete='off'
@@ -86,6 +86,14 @@ const Feed = () => {
                             Post
                         </button>
                     </form>
+                    <div
+                        className='submitIcon'
+                        onClick={(event) => {
+                            if (input.length) createPost(event);
+                        }}
+                    >
+                        {input.length ? <SendIcon /> : <CreateIcon />}
+                    </div>
                 </div>
                 <div className='feed__inputContainer__inputOptions'>
                     <InputOptions Icon={ImageIcon} title='photo' color='#70b5f9' />

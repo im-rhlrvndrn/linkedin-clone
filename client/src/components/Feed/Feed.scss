@@ -17,6 +17,9 @@
         padding: 0.8rem;
         margin-bottom: 0.5rem;
         width: 100%;
+        @include tablet {
+            border-radius: 0;
+        }
 
         &__input {
             height: auto;
@@ -33,6 +36,7 @@
                 textarea {
                     height: auto;
                     border: none;
+                    padding: 0 1rem;
                     flex: 1;
                 }
 

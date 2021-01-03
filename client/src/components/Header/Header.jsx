@@ -57,7 +57,7 @@ const Header = () => {
                 <HeaderOption Icon={HomeIcon} title='Home' onClick={() => _setAppState('feed')} />
                 <HeaderOption Icon={MyNetworkIcon} title='My Network' />
                 <HeaderOption Icon={BusinessCenterIcon} title='Jobs' />
-                <HeaderOption Icon={ChatIcon} title='Chats' />
+                {/* <HeaderOption Icon={ChatIcon} title='Chats' /> */}
                 <HeaderOption
                     Icon={NotificationsIcon}
                     title='Notifications'

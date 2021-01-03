@@ -13,13 +13,14 @@
     z-index: 999;
     border-bottom: 0.1px solid lightgray;
     @include tablet {
+        padding: 1rem 1rem 2rem 1rem;
         position: fixed;
         top: 100%;
         transform: translateY(-100%);
     }
-    @include phone {
-        padding: 1rem;
-    }
+    // @include phone {
+    //     padding: 1rem;
+    // }
 
     &__left {
         flex: 0.5;

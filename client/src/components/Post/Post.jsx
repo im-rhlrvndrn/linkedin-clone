@@ -72,7 +72,7 @@ const Post = forwardRef(({ id, username, bio, message, avatarURL }, ref) => {
                     </div>
                 )}
             </div>
-            <ReactMarkdown plugins={[gfm]} children={message} />
+            <ReactMarkdown className='post__message' plugins={[gfm]} children={message} />
             {/* <pre className='post__message'>{message}</pre> */}
             <div className='post__interactionOptions'>
                 <InputOptions Icon={ThumbUpIcon} title='Like' color='#999' />

@@ -21,6 +21,8 @@
         margin-right: 0.8rem;
         @include phone {
             margin: 0;
+            height: 20px;
+            object-fit: contain;
         }
     }
 

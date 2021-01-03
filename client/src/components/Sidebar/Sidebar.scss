@@ -55,6 +55,9 @@
         background-color: $white;
         border-radius: 0 0 0.8rem 0.8rem;
         border-top: 0.1px solid lightgray;
+        @include tablet {
+            border-radius: 0;
+        }
 
         &__stat {
             margin-bottom: 0.8rem;
@@ -78,6 +81,9 @@
         background-color: $white;
         padding: 1rem 0.8rem;
         margin-top: 0.8rem;
+        @include tablet {
+            border-radius: 0;
+        }
     }
 
     .logout {

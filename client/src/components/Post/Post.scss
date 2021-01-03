@@ -5,6 +5,9 @@
     border-radius: 10px;
     padding: 1rem;
     margin-bottom: 0.5rem;
+    @include tablet {
+        border-radius: 0;
+    }
 
     &__header {
         position: relative;
@@ -23,6 +26,9 @@
 
             h2 {
                 font-size: 1.2rem;
+                @include phone {
+                    font-size: 1rem;
+                }
             }
 
             &__bio {
@@ -70,7 +76,7 @@
     }
 
     &__message {
-        width: 90%;
+        width: 95%;
     }
 
     &__interactionOptions {
